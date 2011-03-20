@@ -1,19 +1,18 @@
 Summary:	Framework providing Desktop activity awareness
 Name:		zeitgeist
-Version:	0.7
+Version:	0.7.1
 Release:	0.1
 License:	LGPL v2
 Group:		Daemons
-Source0:	http://launchpad.net/zeitgeist/0.7/0.7.0/+download/%{name}-%{version}.tar.gz
-# Source0-md5:	e183137806e1d3870cbaa19f7ed88d8b
-Patch0:		no-rdfpipe.patch
+Source0:	http://launchpad.net/zeitgeist/0.7/0.7.1/+download/%{name}-%{version}.tar.gz
+# Source0-md5:	6ecf4a8467cd9a04f9df7b652b5b4605
 URL:		http://launchpad.net/zeitgeist
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libraptor2-rapper
-BuildRequires:	python-rdflib
+BuildRequires:	python-rdflib >= 3.0.0
 Requires:	python-dbus
 Requires:	python-modules
 Requires:	python-modules-sqlite
@@ -30,7 +29,6 @@ similarity and usage patterns.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__intltoolize}
