@@ -18,6 +18,7 @@ Requires:	python-modules
 Requires:	python-modules-sqlite
 Requires:	python-pygobject
 Requires:	python-pyxdg
+Suggests:	zeitgeist-datahub
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
