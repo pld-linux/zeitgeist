@@ -1,7 +1,7 @@
 Summary:	Framework providing Desktop activity awareness
 Name:		zeitgeist
 Version:	0.8.2
-Release:	0.1
+Release:	1
 License:	LGPL v2
 Group:		Daemons
 Source0:	http://launchpad.net/zeitgeist/0.8/%{version}/+download/%{name}-%{version}.tar.gz
