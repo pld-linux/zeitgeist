@@ -1,11 +1,11 @@
 Summary:	Framework providing Desktop activity awareness
 Name:		zeitgeist
-Version:	0.7.1
+Version:	0.8.2
 Release:	0.1
 License:	LGPL v2
 Group:		Daemons
-Source0:	http://launchpad.net/zeitgeist/0.7/0.7.1/+download/%{name}-%{version}.tar.gz
-# Source0-md5:	6ecf4a8467cd9a04f9df7b652b5b4605
+Source0:	http://launchpad.net/zeitgeist/0.8/%{version}/+download/%{name}-%{version}.tar.gz
+# Source0-md5:	589e7de784d21177491780bffd11097d
 URL:		http://launchpad.net/zeitgeist
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -53,7 +53,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README TODO
+%doc AUTHORS ChangeLog NEWS README 
 %attr(755,root,root) %{_bindir}/zeitgeist-daemon
 %{_datadir}/dbus-1/services/org.gnome.zeitgeist.service
 %{_datadir}/zeitgeist
