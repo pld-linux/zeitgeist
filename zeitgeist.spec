@@ -16,6 +16,7 @@ BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libraptor2-rapper
 BuildRequires:	python >= 1:2.6
 BuildRequires:	python-rdflib >= 3.0.0
+BuildRequires:	rpm-pythonprov
 Requires:	python-%{name} = %{version}-%{release}
 Requires:	python-modules-sqlite
 Requires:	python-pygobject >= 2.16.0
