@@ -1,12 +1,12 @@
 Summary:	Framework providing Desktop activity awareness
 Summary(pl.UTF-8):	Szkielet zapewniający świadomość aktywności w środowisku graficznym
 Name:		zeitgeist
-Version:	0.8.2
-Release:	3
+Version:	0.9.0.1
+Release:	1
 License:	LGPL v2.1+
 Group:		Daemons
-Source0:	http://launchpad.net/zeitgeist/0.8/%{version}/+download/%{name}-%{version}.tar.gz
-# Source0-md5:	589e7de784d21177491780bffd11097d
+Source0:	http://launchpad.net/zeitgeist/0.9/%{version}/+download/%{name}-%{version}.tar.bz2
+# Source0-md5:	08f2eb384824e8458f18e10db7654965
 URL:		http://launchpad.net/zeitgeist
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.9
@@ -17,6 +17,7 @@ BuildRequires:	libraptor2-rapper
 BuildRequires:	python >= 1:2.6
 BuildRequires:	python-rdflib >= 3.0.0
 BuildRequires:	rpm-pythonprov
+BuildRequires:	xapian-core-devel
 Requires:	python-%{name} = %{version}-%{release}
 Requires:	python-modules-sqlite
 Requires:	python-pygobject >= 2.16.0
@@ -60,7 +61,7 @@ Biblioteka kliencka w Pythonie do DBus API demona Zeitgeist.
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure
+%configure --disable-fts
 %{__make}
 
 %install
@@ -71,23 +72,17 @@ rm -rf $RPM_BUILD_ROOT
 
 %py_postclean
 
-%find_lang %{name}
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %{name}.lang
+%files
 %defattr(644,root,root,755)
-%doc AUTHORS COPYRIGHT ChangeLog NEWS README
+%doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/zeitgeist-daemon
 %{_datadir}/dbus-1/services/org.gnome.zeitgeist.service
-%{_datadir}/zeitgeist/_zeitgeist
 %{_mandir}/man1/zeitgeist-daemon.1*
-# -devel? (for daemon extensions development)
-%{_pkgconfigdir}/zeitgeist-daemon.pc
 
 %files -n python-%{name}
 %defattr(644,root,root,755)
 %{py_sitescriptdir}/zeitgeist
-%dir %{_datadir}/zeitgeist
 %{_datadir}/zeitgeist/ontology
