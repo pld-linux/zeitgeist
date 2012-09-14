@@ -11,17 +11,23 @@ URL:		http://launchpad.net/zeitgeist
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	gettext-devel
+BuildRequires:	glib2-devel >= 1:2.26.0
 BuildRequires:	gnome-common
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libraptor2-rapper
 BuildRequires:	python >= 1:2.6
 BuildRequires:	python-rdflib >= 3.0.0
 BuildRequires:	rpm-pythonprov
+BuildRequires:	sqlite3-devel >= 3.7
+# not required in releases
+#BuildRequires:	vala >= 0.16.0
 BuildRequires:	xapian-core-devel
+Requires:	glib2 >= 1:2.26.0
 Requires:	python-%{name} = %{version}-%{release}
 Requires:	python-modules-sqlite
 Requires:	python-pygobject >= 2.16.0
 Requires:	python-pyxdg
+Requires:	sqlite3 >= 3.7
 Suggests:	zeitgeist-datahub
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -61,7 +67,9 @@ Biblioteka kliencka w Pythonie do DBus API demona Zeitgeist.
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure --disable-fts
+%configure \
+	--disable-fts \
+	--disable-silent-rules
 %{__make}
 
 %install
@@ -77,7 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
+%doc AUTHORS ChangeLog NEWS TODO
 %attr(755,root,root) %{_bindir}/zeitgeist-daemon
 %{_datadir}/dbus-1/services/org.gnome.zeitgeist.service
 %{_mandir}/man1/zeitgeist-daemon.1*
