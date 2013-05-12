@@ -2,7 +2,7 @@ Summary:	Framework providing Desktop activity awareness
 Summary(pl.UTF-8):	Szkielet zapewniający świadomość aktywności w środowisku graficznym
 Name:		zeitgeist
 Version:	0.9.5
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		Daemons
 Source0:	http://launchpad.net/zeitgeist/0.9/%{version}/+download/%{name}-%{version}.tar.bz2
@@ -88,6 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS TODO
 %attr(755,root,root) %{_bindir}/zeitgeist-daemon
 %{_datadir}/dbus-1/services/org.gnome.zeitgeist.service
+%{_datadir}/zeitgeist
 %{_mandir}/man1/zeitgeist-daemon.1*
 
 %files -n python-%{name}
