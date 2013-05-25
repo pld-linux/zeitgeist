@@ -7,9 +7,10 @@ License:	LGPL v2.1+
 Group:		Daemons
 Source0:	http://launchpad.net/zeitgeist/0.9/%{version}/+download/%{name}-%{version}.tar.xz
 # Source0-md5:	58488a7636a663a700be2b1d1a639e40
+Patch0:		%{name}-lt.patch
 URL:		http://launchpad.net/zeitgeist
 BuildRequires:	autoconf >= 2.50
-BuildRequires:	automake >= 1:1.9
+BuildRequires:	automake >= 1:1.11
 BuildRequires:	dee-devel >= 1.0.2
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.26.0
@@ -24,7 +25,8 @@ BuildRequires:	python-rdflib >= 3.0.0
 BuildRequires:	rpm-pythonprov
 BuildRequires:	sqlite3-devel >= 3.7.11
 BuildRequires:	telepathy-glib-devel >= 0.18.0
-BuildRequires:	vala >= 0.18.0
+BuildRequires:	vala >= 2:0.18.0
+BuildRequires:	vala-telepathy-glib >= 0.18.0
 BuildRequires:	xapian-core-devel
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	dbus
@@ -64,6 +66,7 @@ Summary:	Development files for Zeitgeist library
 Summary(pl.UTF-8):	Pliki programistyczne biblioteki Zeitgeist
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
+Requires:	glib2-devel >= 1:2.26.0
 
 %description devel
 This package provides development files for Zeitgeist library.
@@ -85,6 +88,19 @@ Python client library for Zeitgeist DBus API.
 %description -n python-%{name} -l pl.UTF-8
 Biblioteka kliencka w Pythonie do DBus API demona Zeitgeist.
 
+%package -n vala-zeitgeist
+Summary:	Zeitgeist API for Vala language
+Summary(pl.UTF-8):	API Zeitgeist dla języka Vala
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+Requires:	vala >= 2:0.18.0
+
+%description -n vala-zeitgeist
+Zeitgeist API for Vala language.
+
+%description -n vala-zeitgeist -l pl.UTF-8
+API Zeitgeist dla języka Vala.
+
 %package -n bash-completion-zeitgeist
 Summary:	bash-completion for Zeitgeist
 Summary(pl.UTF-8):	bashowe uzupełnianie nazw dla Zeitgeist
@@ -97,21 +113,9 @@ This package provides bash-completion for Zeitgeist.
 %description -n bash-completion-zeitgeist -l pl.UTF-8
 Pakiet ten dostarcza bashowe uzupełnianie nazw dla Zeitgeist.
 
-%package -n vala-zeitgeist
-Summary:	Zeitgeist API for Vala language
-Summary(pl.UTF-8):	API Zeitgeist dla języka Vala
-Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}-%{release}
-Requires:	vala >= 0.18.0
-
-%description -n vala-zeitgeist
-Zeitgeist API for Vala language.
-
-%description -n vala-zeitgeist -l pl.UTF-8
-API Zeitgeist dla języka Vala.
-
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__intltoolize}
@@ -137,8 +141,8 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post libs -p /sbin/ldconfig
-%postun libs -p /sbin/ldconfig
+%post	libs -p /sbin/ldconfig
+%postun	libs -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
@@ -169,12 +173,12 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitescriptdir}/zeitgeist
 %{_datadir}/zeitgeist/ontology
 
-%files -n bash-completion-zeitgeist
-%defattr(644,root,root,755)
-%{_datadir}/bash-completion/completions/zeitgeist-daemon
-
 %files -n vala-zeitgeist
 %defattr(644,root,root,755)
 %{_datadir}/vala/vapi/zeitgeist-2.0.deps
 %{_datadir}/vala/vapi/zeitgeist-2.0.vapi
 %{_datadir}/vala/vapi/zeitgeist-datamodel-2.0.vapi
+
+%files -n bash-completion-zeitgeist
+%defattr(644,root,root,755)
+%{_datadir}/bash-completion/completions/zeitgeist-daemon
