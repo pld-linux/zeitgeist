@@ -54,6 +54,7 @@ Summary(pl.UTF-8):	Biblioteka Zeitgeist
 Group:		Libraries
 Requires:	glib2 >= 1:2.26.0
 Requires:	sqlite3 >= 3.7.11
+Conflicts:	zeitgeist < 0.9.12-1
 
 %description libs
 This package provides Zeitgeist library.
