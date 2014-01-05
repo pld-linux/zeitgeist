@@ -2,7 +2,7 @@ Summary:	Framework providing Desktop activity awareness
 Summary(pl.UTF-8):	Szkielet zapewniający świadomość aktywności w środowisku graficznym
 Name:		zeitgeist
 Version:	0.9.14
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		Daemons
 Source0:	http://launchpad.net/zeitgeist/0.9/%{version}/+download/%{name}-%{version}.tar.xz
@@ -135,8 +135,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libzeitgeist-2.0.la
 %{__rm} -r $RPM_BUILD_ROOT%{_datadir}/zeitgeist/doc
-
-%py_postclean
 
 %clean
 rm -rf $RPM_BUILD_ROOT
