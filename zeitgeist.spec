@@ -2,7 +2,7 @@ Summary:	Framework providing Desktop activity awareness
 Summary(pl.UTF-8):	Szkielet zapewniający świadomość aktywności w środowisku graficznym
 Name:		zeitgeist
 Version:	0.9.14
-Release:	2
+Release:	3
 License:	LGPL v2.1+
 Group:		Daemons
 Source0:	http://launchpad.net/zeitgeist/0.9/%{version}/+download/%{name}-%{version}.tar.xz
@@ -123,8 +123,8 @@ Pakiet ten dostarcza bashowe uzupełnianie nazw dla Zeitgeist.
 %{__autoconf}
 %{__automake}
 %configure \
-	--disable-fts \
-	--disable-silent-rules
+	--disable-silent-rules \
+	--enable-fts
 %{__make}
 
 %install
@@ -148,6 +148,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/zeitgeist-daemon
 %attr(755,root,root) %{_bindir}/zeitgeist-datahub
 /etc/xdg/autostart/zeitgeist-datahub.desktop
+%attr(755,root,root) %{_libdir}/zeitgeist-fts
+%{_datadir}/dbus-1/services/org.gnome.zeitgeist.fts.service
 %{_datadir}/dbus-1/services/org.gnome.zeitgeist.service
 %dir %{_datadir}/zeitgeist
 %{_mandir}/man1/zeitgeist-daemon.1*
