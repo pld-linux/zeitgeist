@@ -106,6 +106,9 @@ Summary:	bash-completion for Zeitgeist
 Summary(pl.UTF-8):	bashowe uzupełnianie nazw dla Zeitgeist
 Group:		Applications/Shells
 Requires:	bash-completion
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description -n bash-completion-zeitgeist
 This package provides bash-completion for Zeitgeist.
