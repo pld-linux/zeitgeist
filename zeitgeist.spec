@@ -2,12 +2,13 @@ Summary:	Framework providing Desktop activity awareness
 Summary(pl.UTF-8):	Szkielet zapewniający świadomość aktywności w środowisku graficznym
 Name:		zeitgeist
 Version:	0.9.14
-Release:	3
+Release:	4
 License:	LGPL v2.1+
 Group:		Daemons
 Source0:	http://launchpad.net/zeitgeist/0.9/%{version}/+download/%{name}-%{version}.tar.xz
 # Source0-md5:	92371b864515389ffe7d70569f0bc9ed
 Patch0:		%{name}-lt.patch
+Patch1:		%{name}-vala.patch
 URL:		http://launchpad.net/zeitgeist
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.11
@@ -119,6 +120,7 @@ Pakiet ten dostarcza bashowe uzupełnianie nazw dla Zeitgeist.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__intltoolize}

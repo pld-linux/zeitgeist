@@ -1,0 +1,5 @@
+--- zeitgeist-0.9.14/libzeitgeist/zeitgeist-2.0.deps.orig	2013-06-17 08:40:08.000000000 +0200
++++ zeitgeist-0.9.14/libzeitgeist/zeitgeist-2.0.deps	2014-06-22 08:56:35.037811596 +0200
+@@ -1 +1,2 @@
++gio-2.0
+ zeitgeist-datamodel-2.0
