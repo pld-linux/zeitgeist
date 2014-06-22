@@ -154,7 +154,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/zeitgeist-fts
 %{_datadir}/dbus-1/services/org.gnome.zeitgeist.fts.service
 %{_datadir}/dbus-1/services/org.gnome.zeitgeist.service
-%dir %{_datadir}/zeitgeist
 %{_mandir}/man1/zeitgeist-daemon.1*
 %{_mandir}/man1/zeitgeist-datahub.1*
 
@@ -163,6 +162,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libzeitgeist-2.0.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libzeitgeist-2.0.so.0
 %{_libdir}/girepository-1.0/Zeitgeist-2.0.typelib
+%dir %{_datadir}/zeitgeist
 
 %files devel
 %defattr(644,root,root,755)
