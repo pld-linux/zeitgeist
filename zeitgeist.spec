@@ -15,7 +15,7 @@ BuildRequires:	automake >= 1:1.11
 BuildRequires:	dbus-devel
 BuildRequires:	dee-devel >= 1.0.2
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 1:2.26.0
+BuildRequires:	glib2-devel >= 1:2.36.0
 BuildRequires:	gnome-common
 BuildRequires:	gobject-introspection-devel >= 1.30.0
 BuildRequires:	gtk+3-devel >= 3.0.0
@@ -54,7 +54,7 @@ i wzorce użycia.
 Summary:	Zeitgeist library
 Summary(pl.UTF-8):	Biblioteka Zeitgeist
 Group:		Libraries
-Requires:	glib2 >= 1:2.26.0
+Requires:	glib2 >= 1:2.36.0
 Requires:	sqlite3 >= 3.7.11
 
 %description libs
@@ -68,7 +68,7 @@ Summary:	Development files for Zeitgeist library
 Summary(pl.UTF-8):	Pliki programistyczne biblioteki Zeitgeist
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
-Requires:	glib2-devel >= 1:2.26.0
+Requires:	glib2-devel >= 1:2.36.0
 
 %description devel
 This package provides development files for Zeitgeist library.
