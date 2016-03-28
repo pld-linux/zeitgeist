@@ -2,7 +2,7 @@ Summary:	Framework providing Desktop activity awareness
 Summary(pl.UTF-8):	Szkielet zapewniający świadomość aktywności w środowisku graficznym
 Name:		zeitgeist
 Version:	0.9.16
-Release:	2
+Release:	3
 License:	LGPL v2.1+
 Group:		Daemons
 Source0:	http://launchpad.net/zeitgeist/0.9/%{version}/+download/%{name}-%{version}.tar.xz
@@ -25,6 +25,7 @@ BuildRequires:	libraptor2-rapper
 BuildRequires:	python >= 1:2.6
 BuildRequires:	python-rdflib >= 3.0.0
 BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 1.673
 BuildRequires:	sqlite3-devel >= 3.7.11
 BuildRequires:	telepathy-glib-devel >= 0.18.0
 BuildRequires:	vala >= 2:0.22.0
@@ -96,6 +97,9 @@ Summary(pl.UTF-8):	API Zeitgeist dla języka Vala
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	vala >= 2:0.18.0
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description -n vala-zeitgeist
 Zeitgeist API for Vala language.
@@ -107,7 +111,7 @@ API Zeitgeist dla języka Vala.
 Summary:	bash-completion for Zeitgeist
 Summary(pl.UTF-8):	bashowe uzupełnianie nazw dla Zeitgeist
 Group:		Applications/Shells
-Requires:	bash-completion
+Requires:	bash-completion >= 2.0
 %if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
 %endif
@@ -189,4 +193,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n bash-completion-zeitgeist
 %defattr(644,root,root,755)
-%{_datadir}/bash-completion/completions/zeitgeist-daemon
+%{bash_compdir}/zeitgeist-daemon
