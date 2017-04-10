@@ -1,14 +1,15 @@
 Summary:	Framework providing Desktop activity awareness
 Summary(pl.UTF-8):	Szkielet zapewniający świadomość aktywności w środowisku graficznym
 Name:		zeitgeist
-Version:	0.9.16
-Release:	3
+Version:	1.0
+Release:	1
 License:	LGPL v2.1+
 Group:		Daemons
-Source0:	http://launchpad.net/zeitgeist/0.9/%{version}/+download/%{name}-%{version}.tar.xz
-# Source0-md5:	f56b58a19d5fd5a7365ddcbe26ee6b15
+Source0:	http://launchpad.net/zeitgeist/1.0/%{version}/+download/%{name}-%{version}.tar.xz
+# Source0-md5:	5f894639cce2293c17407c9bd2689031
 Patch0:		%{name}-lt.patch
 Patch1:		%{name}-vala.patch
+Patch2:		%{name}-fts-service.patch
 URL:		http://launchpad.net/zeitgeist
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.11
@@ -16,16 +17,14 @@ BuildRequires:	dbus-devel
 BuildRequires:	dee-devel >= 1.0.2
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.36.0
-BuildRequires:	gnome-common
 BuildRequires:	gobject-introspection-devel >= 1.30.0
 BuildRequires:	gtk+3-devel >= 3.0.0
-BuildRequires:	intltool >= 0.40.0
 BuildRequires:	json-glib-devel >= 0.14.0
 BuildRequires:	libraptor2-rapper
 BuildRequires:	python >= 1:2.6
 BuildRequires:	python-rdflib >= 3.0.0
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.673
+BuildRequires:	rpmbuild(macros) >= 1.682
 BuildRequires:	sqlite3-devel >= 3.7.11
 BuildRequires:	telepathy-glib-devel >= 0.18.0
 BuildRequires:	vala >= 2:0.22.0
@@ -126,9 +125,10 @@ Pakiet ten dostarcza bashowe uzupełnianie nazw dla Zeitgeist.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
-%{__intltoolize}
+%{__gettextize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -160,11 +160,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/zeitgeist-daemon
 %attr(755,root,root) %{_bindir}/zeitgeist-datahub
 /etc/xdg/autostart/zeitgeist-datahub.desktop
-%attr(755,root,root) %{_libdir}/zeitgeist-fts
-%{_datadir}/dbus-1/services/org.gnome.zeitgeist.fts.service
-%{_datadir}/dbus-1/services/org.gnome.zeitgeist.service
+%dir %{_libdir}/%{name}
+%attr(755,root,root) %{_libdir}/%{name}/zeitgeist-fts
+%{_datadir}/dbus-1/services/org.gnome.zeitgeist.Engine.service
+%{_datadir}/dbus-1/services/org.gnome.zeitgeist.SimpleIndexer.service
 %{_mandir}/man1/zeitgeist-daemon.1*
 %{_mandir}/man1/zeitgeist-datahub.1*
+%{systemduserunitdir}/zeitgeist.service
+%{systemduserunitdir}/zeitgeist-fts.service
 
 %files libs
 %defattr(644,root,root,755)
