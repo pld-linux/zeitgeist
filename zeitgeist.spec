@@ -1,15 +1,14 @@
 Summary:	Framework providing Desktop activity awareness
 Summary(pl.UTF-8):	Szkielet zapewniający świadomość aktywności w środowisku graficznym
 Name:		zeitgeist
-Version:	1.0
-Release:	2
+Version:	1.0.1
+Release:	1
 License:	LGPL v2.1+
 Group:		Daemons
 Source0:	http://launchpad.net/zeitgeist/1.0/%{version}/+download/%{name}-%{version}.tar.xz
-# Source0-md5:	5f894639cce2293c17407c9bd2689031
+# Source0-md5:	ded2d4684e9536abbb0b08178b03e943
 Patch0:		%{name}-lt.patch
 Patch1:		%{name}-vala.patch
-Patch2:		%{name}-fts-service.patch
 URL:		http://launchpad.net/zeitgeist
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.11
@@ -125,7 +124,6 @@ Pakiet ten dostarcza bashowe uzupełnianie nazw dla Zeitgeist.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 %{__gettextize}
@@ -160,8 +158,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/zeitgeist-daemon
 %attr(755,root,root) %{_bindir}/zeitgeist-datahub
 /etc/xdg/autostart/zeitgeist-datahub.desktop
-%dir %{_libdir}/%{name}
-%attr(755,root,root) %{_libdir}/%{name}/zeitgeist-fts
+%dir %{_libexecdir}/%{name}
+%attr(755,root,root) %{_libexecdir}/%{name}/zeitgeist-fts
 %{_datadir}/dbus-1/services/org.gnome.zeitgeist.Engine.service
 %{_datadir}/dbus-1/services/org.gnome.zeitgeist.SimpleIndexer.service
 %{_mandir}/man1/zeitgeist-daemon.1*
