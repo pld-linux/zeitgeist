@@ -2,7 +2,7 @@ Summary:	Framework providing Desktop activity awareness
 Summary(pl.UTF-8):	Szkielet zapewniający świadomość aktywności w środowisku graficznym
 Name:		zeitgeist
 Version:	1.0.2
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		Daemons
 Source0:	http://launchpad.net/zeitgeist/1.0/%{version}/+download/%{name}-%{version}.tar.xz
@@ -10,27 +10,34 @@ Source0:	http://launchpad.net/zeitgeist/1.0/%{version}/+download/%{name}-%{versi
 Patch0:		%{name}-lt.patch
 Patch1:		%{name}-vala.patch
 URL:		http://launchpad.net/zeitgeist
-BuildRequires:	autoconf >= 2.50
+BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	dbus-devel
 BuildRequires:	dee-devel >= 1.0.2
-BuildRequires:	gettext-tools
+BuildRequires:	gettext-tools >= 0.19
 BuildRequires:	glib2-devel >= 1:2.36.0
 BuildRequires:	gobject-introspection-devel >= 1.30.0
 BuildRequires:	gtk+3-devel >= 3.0.0
 BuildRequires:	json-glib-devel >= 0.14.0
-BuildRequires:	libraptor2-rapper
+BuildRequires:	libtool >= 2:2.2.6
+BuildRequires:	pkgconfig >= 1:0.21
 BuildRequires:	python >= 1:2.6
 BuildRequires:	python-rdflib >= 3.0.0
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.682
 BuildRequires:	sqlite3-devel >= 3.7.11
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	telepathy-glib-devel >= 0.18.0
 BuildRequires:	vala >= 2:0.22.0
 BuildRequires:	vala-telepathy-glib >= 0.18.0
+BuildRequires:	valadoc >= 0.2
 BuildRequires:	xapian-core-devel
+BuildRequires:	xz
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	dbus
+Requires:	dee >= 1.0.2
+Requires:	json-glib >= 0.14.0
+Requires:	telepathy-glib >= 0.18.0
 Provides:	zeitgeist-datahub = %{version}-%{release}
 Obsoletes:	zeitgeist-datahub < 0.9.5-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
