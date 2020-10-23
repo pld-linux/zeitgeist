@@ -1,12 +1,12 @@
 Summary:	Framework providing Desktop activity awareness
 Summary(pl.UTF-8):	Szkielet zapewniający świadomość aktywności w środowisku graficznym
 Name:		zeitgeist
-Version:	1.0.2
-Release:	2
+Version:	1.0.3
+Release:	1
 License:	LGPL v2.1+
 Group:		Daemons
 Source0:	http://launchpad.net/zeitgeist/1.0/%{version}/+download/%{name}-%{version}.tar.xz
-# Source0-md5:	08e9031e158a4ab0824adc2610e7d122
+# Source0-md5:	8258b5521d1f25d18f7ace3c974c5ab1
 Patch0:		%{name}-lt.patch
 Patch1:		%{name}-vala.patch
 URL:		http://launchpad.net/zeitgeist
@@ -21,8 +21,8 @@ BuildRequires:	gtk+3-devel >= 3.0.0
 BuildRequires:	json-glib-devel >= 0.14.0
 BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	pkgconfig >= 1:0.21
-BuildRequires:	python >= 1:2.6
-BuildRequires:	python-rdflib >= 3.0.0
+BuildRequires:	python3
+BuildRequires:	python3-rdflib >= 3.0.0
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.682
 BuildRequires:	sqlite3-devel >= 3.7.11
@@ -82,18 +82,19 @@ This package provides development files for Zeitgeist library.
 %description devel -l pl.UTF-8
 Ten pakiet dostarcza pliki programistyczne dla biblioteki Zeitgeist.
 
-%package -n python-%{name}
+%package -n python3-%{name}
 Summary:	Python client library for Zeitgeist DBus API
 Summary(pl.UTF-8):	Biblioteka kliencka w Pythonie do DBus API demona Zeitgeist
 Group:		Development/Languages/Python
-Requires:	python-dbus
-Requires:	python-modules
+Requires:	python3-dbus
+Requires:	python3-modules
+Obsoletes:	python-zeitgeist < 1.0.3
 Conflicts:	zeitgeist < 0.8.2-2
 
-%description -n python-%{name}
+%description -n python3-%{name}
 Python client library for Zeitgeist DBus API.
 
-%description -n python-%{name} -l pl.UTF-8
+%description -n python3-%{name} -l pl.UTF-8
 Biblioteka kliencka w Pythonie do DBus API demona Zeitgeist.
 
 %package -n vala-zeitgeist
@@ -188,9 +189,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gir-1.0/Zeitgeist-2.0.gir
 %{_pkgconfigdir}/zeitgeist-2.0.pc
 
-%files -n python-%{name}
+%files -n python3-%{name}
 %defattr(644,root,root,755)
-%{py_sitescriptdir}/zeitgeist
+%{py3_sitescriptdir}/zeitgeist
 %{_datadir}/zeitgeist/ontology
 
 %files -n vala-zeitgeist
