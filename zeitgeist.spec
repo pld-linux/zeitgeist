@@ -90,6 +90,7 @@ Requires:	python3-dbus
 Requires:	python3-modules
 Obsoletes:	python-zeitgeist < 1.0.3
 Conflicts:	zeitgeist < 0.8.2-2
+BuildArch:	noarch
 
 %description -n python3-%{name}
 Python client library for Zeitgeist DBus API.
@@ -103,9 +104,7 @@ Summary(pl.UTF-8):	API Zeitgeist dla języka Vala
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	vala >= 2:0.18.0
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description -n vala-zeitgeist
 Zeitgeist API for Vala language.
@@ -118,9 +117,7 @@ Summary:	bash-completion for Zeitgeist
 Summary(pl.UTF-8):	bashowe uzupełnianie nazw dla Zeitgeist
 Group:		Applications/Shells
 Requires:	bash-completion >= 2.0
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description -n bash-completion-zeitgeist
 This package provides bash-completion for Zeitgeist.
