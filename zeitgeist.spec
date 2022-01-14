@@ -5,7 +5,7 @@ Version:	1.0.4
 Release:	1
 License:	LGPL v2.1+
 Group:		Daemons
-Source0:	http://launchpad.net/zeitgeist/1.0/%{version}/+download/%{name}-%{version}.tar.xz
+Source0:	https://launchpad.net/zeitgeist/1.0/%{version}/+download/%{name}-%{version}.tar.xz
 # Source0-md5:	f02e8be3dc5f18a67be3b1272108d584
 Patch0:		%{name}-lt.patch
 Patch1:		%{name}-vala.patch
