@@ -23,6 +23,7 @@ BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	pkgconfig >= 1:0.21
 BuildRequires:	python3
 BuildRequires:	python3-rdflib >= 3.0.0
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.682
 BuildRequires:	sqlite3-devel >= 3.7.11
