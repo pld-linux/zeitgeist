@@ -1,17 +1,14 @@
 Summary:	Framework providing Desktop activity awareness
 Summary(pl.UTF-8):	Szkielet zapewniający świadomość aktywności w środowisku graficznym
 Name:		zeitgeist
-Version:	1.0.3
-Release:	4
+Version:	1.0.4
+Release:	1
 License:	LGPL v2.1+
 Group:		Daemons
 Source0:	http://launchpad.net/zeitgeist/1.0/%{version}/+download/%{name}-%{version}.tar.xz
-# Source0-md5:	8258b5521d1f25d18f7ace3c974c5ab1
+# Source0-md5:	f02e8be3dc5f18a67be3b1272108d584
 Patch0:		%{name}-lt.patch
 Patch1:		%{name}-vala.patch
-Patch2:		0001-use-genericarray-api-only.patch
-Patch3:		0002-fix-syntax-of-namespace-docs.patch
-Patch4:		0003-sync-custom-g-assert-cmp-bindings.patch
 URL:		http://launchpad.net/zeitgeist
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.11
@@ -31,7 +28,7 @@ BuildRequires:	rpmbuild(macros) >= 1.682
 BuildRequires:	sqlite3-devel >= 3.7.11
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	telepathy-glib-devel >= 0.18.0
-BuildRequires:	vala >= 2:0.22.0
+BuildRequires:	vala >= 2:0.32.1
 BuildRequires:	vala-telepathy-glib >= 0.18.0
 BuildRequires:	valadoc >= 0.2
 BuildRequires:	xapian-core-devel
@@ -106,7 +103,7 @@ Summary:	Zeitgeist API for Vala language
 Summary(pl.UTF-8):	API Zeitgeist dla języka Vala
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
-Requires:	vala >= 2:0.18.0
+Requires:	vala >= 2:0.32.1
 BuildArch:	noarch
 
 %description -n vala-zeitgeist
@@ -132,9 +129,6 @@ Pakiet ten dostarcza bashowe uzupełnianie nazw dla Zeitgeist.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
 
 %build
 %{__gettextize}
