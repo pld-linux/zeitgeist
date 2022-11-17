@@ -2,7 +2,7 @@ Summary:	Framework providing Desktop activity awareness
 Summary(pl.UTF-8):	Szkielet zapewniający świadomość aktywności w środowisku graficznym
 Name:		zeitgeist
 Version:	1.0.4
-Release:	3
+Release:	4
 License:	LGPL v2.1+
 Group:		Daemons
 Source0:	https://launchpad.net/zeitgeist/1.0/%{version}/+download/%{name}-%{version}.tar.xz
@@ -62,7 +62,7 @@ Summary:	Zeitgeist library
 Summary(pl.UTF-8):	Biblioteka Zeitgeist
 Group:		Libraries
 Requires:	glib2 >= 1:2.36.0
-Requires:	sqlite3 >= 3.7.11
+Requires:	sqlite3-libs >= 3.7.11
 
 %description libs
 This package provides Zeitgeist library.
