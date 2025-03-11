@@ -2,7 +2,7 @@ Summary:	Framework providing Desktop activity awareness
 Summary(pl.UTF-8):	Szkielet zapewniający świadomość aktywności w środowisku graficznym
 Name:		zeitgeist
 Version:	1.0.4
-Release:	4
+Release:	5
 License:	LGPL v2.1+
 Group:		Daemons
 Source0:	https://launchpad.net/zeitgeist/1.0/%{version}/+download/%{name}-%{version}.tar.xz
