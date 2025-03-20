@@ -1,0 +1,11 @@
+--- zeitgeist-1.0.4/extensions/fts.c.orig	2022-01-12 19:41:11.000000000 +0100
++++ zeitgeist-1.0.4/extensions/fts.c	2025-03-20 00:55:20.279375025 +0100
+@@ -1049,7 +1049,7 @@
+ 		gchar* _tmp7_;
+ 		gchar* _tmp8_;
+ 		gboolean _tmp9_;
+-		_tmp2_ = g_async_result_get_source_object (res);
++		_tmp2_ = ZEITGEIST_REMOTE_SIMPLE_INDEXER(g_async_result_get_source_object (res));
+ 		_tmp3_ = (ZeitgeistRemoteSimpleIndexer*) g_async_initable_new_finish ((GAsyncInitable *) _tmp2_, res, &_inner_error0_);
+ 		g_object_unref (_tmp2_);
+ 		_tmp1_ = (ZeitgeistRemoteSimpleIndexer*) _tmp3_;
